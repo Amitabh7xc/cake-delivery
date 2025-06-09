@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Delicious Cakes Delivered to Your Doorstep</h1>
+            <p>Order from our selection of premium cakes, made fresh and delivered fast. Perfect for every celebration!</p>
+            <a href="#cakes" class="btn hero-btn">Browse Cakes</a>
+        </div>
+    </section>
+    <section class="features">
+        <div class="feature">
+            <i class="fa-solid fa-truck-fast"></i>
+            <h3>Fast Delivery</h3>
+            <p>Get your cake delivered within hours, fresh and ready to enjoy.</p>
+        </div>
+        <div class="feature">
+            <i class="fa-solid fa-cake-candles"></i>
+            <h3>Custom Orders</h3>
+            <p>Personalize your cake for birthdays, anniversaries, and special occasions.</p>
+        </div>
+        <div class="feature">
+            <i class="fa-solid fa-star"></i>
+            <h3>Premium Quality</h3>
+            <p>We use only the finest ingredients for a taste you'll remember.</p>
+        </div>
+    </section>
+    <h2 id="cakes">Our Cakes</h2>
+    <div class="cake-grid">
+        {% for cake in cakes %}
+            <div class="cake-card">
+                {% if cake.image %}
+                    <img src="{{ url_for('static', filename='images/' + cake.image) }}" alt="{{ cake.name }}" onerror="this.onerror=null;this.src='https://svgshare.com/i/12uG.svg';">
+                {% else %}
+                    <img src="https://svgshare.com/i/12uG.svg" alt="Cake Placeholder">
+                {% endif %}
+                <h2 style="color:#fda085;">{{ cake.name }}</h2>
+                <p>{{ cake.description }}</p>
+                <p>Price: {{ cake.price }}</p>
+                <a href="{{ url_for('cake', cake_id=cake.id) }}" class="btn">View Details</a>
+            </div>
+        {% endfor %}
+    </div>
+    <section class="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial">
+            <p>"The chocolate cake was heavenly and the delivery was super quick!"</p>
+            <span>- Priya S.</span>
+        </div>
+        <div class="testimonial">
+            <p>"Beautifully decorated and tasted amazing. Will order again!"</p>
+            <span>- Rahul K.</span>
+        </div>
+    </section>
+{% endblock %}

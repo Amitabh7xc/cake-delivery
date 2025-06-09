@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>About Cake Delivery</h1>
+    <p style="font-size:1.1rem;max-width:600px;margin:auto;text-align:center;">We are passionate about delivering the freshest, most delicious cakes right to your doorstep. Our cakes are made with love and the finest ingredients, ensuring every bite is a celebration. Whether it's a birthday, anniversary, or just a sweet craving, Cake Delivery is here to make your moments special!</p>
+    <div style="display:flex;justify-content:center;margin-top:32px;">
+        <img src="{{ url_for('static', filename='images/cake1.jpg') }}" alt="Our Cake" style="width:220px;height:160px;border-radius:12px;box-shadow:0 2px 12px rgba(253,160,133,0.12);">
+    </div>
+{% endblock %}

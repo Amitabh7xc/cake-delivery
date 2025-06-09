@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ cake.name }}</h1>
+    {% if cake.image %}
+        <img class="cake-detail-img" src="{{ url_for('static', filename='images/' + cake.image) }}" alt="{{ cake.name }}" onerror="this.onerror=null;this.src='https://svgshare.com/i/12uG.svg';">
+    {% else %}
+        <img class="cake-detail-img" src="https://svgshare.com/i/12uG.svg" alt="Cake Placeholder">
+    {% endif %}
+    <p>{{ cake.description }}</p>
+    <p>Price: {{ cake.price }}</p>
+    <a href="{{ url_for('order', cake_id=cake.id) }}" class="btn">Order Now</a>
+{% endblock %}

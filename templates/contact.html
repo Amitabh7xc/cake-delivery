@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Contact Us</h1>
+    <p style="font-size:1.1rem;max-width:600px;margin:auto;text-align:center;">Have a question, suggestion, or special request? We'd love to hear from you! Fill out the form below or reach us directly at <a href="mailto:info@cakedelivery.com" style="color:#fda085;">info@cakedelivery.com</a>.</p>
+    <form style="max-width:400px;margin:32px auto 0 auto;">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Your Email:</label>
+        <input type="text" id="email" name="email" required>
+        <label for="message">Message:</label>
+        <input type="text" id="message" name="message" style="height:80px;" required>
+        <button type="submit" class="btn" style="width:100%;margin-top:12px;">Send Message</button>
+    </form>
+{% endblock %}
